@@ -1,0 +1,1 @@
+export { getRequestUrl } from './getRequestUrl';

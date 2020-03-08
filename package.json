@@ -1,0 +1,29 @@
+{
+  "name": "express-full-request-url",
+  "version": "1.0.0",
+  "description": "Returns the full URL (including protocol, hostname and port) from an Express request.",
+  "author": "Markus Kaiserswerth",
+  "license": "ISC",
+  "keywords": [
+    "express",
+    "request",
+    "full url"
+  ],
+  "repository": "git@github.com:mkai/express-full-request-url.git",
+  "bugs": {
+    "url": "https://github.com/mkai/express-full-request-url/issues"
+  },
+  "homepage": "https://github.com/mkai/express-full-request-url#readme",
+  "main": "lib/index.js",
+  "files": "lib/**/*.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.7",
+    "@babel/preset-env": "^7.8.7",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
+  }
+}
