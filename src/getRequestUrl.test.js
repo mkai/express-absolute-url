@@ -21,6 +21,10 @@ describe('getRequestUrl', () => {
       expectedUrl: 'https://host.com/path.html',
     },
     {
+      request: testRequest({ url: '/Path.html' }),
+      expectedUrl: 'https://host.com/Path.html',
+    },
+    {
       request: testRequest({ app: testApp(8443) }),
       expectedUrl: 'https://host.com:8443/path.html',
     },
