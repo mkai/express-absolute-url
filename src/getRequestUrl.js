@@ -11,8 +11,8 @@ function getBaseUrlString({ protocol, username, password, hostname, app }) {
   return url.format({
     protocol,
     auth: getAuthString(username, password),
-    port: parsedPort || app.settings.port,
     hostname: bareHostname,
+    port: app.settings.port,
   });
 }
 
