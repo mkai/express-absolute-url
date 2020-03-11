@@ -20,6 +20,9 @@
     "lint": "eslint .",
     "test": "jest"
   },
+  "peerDependencies": {
+    "express": "4.x || 5.x"
+  },
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/preset-env": "^7.8.7",
