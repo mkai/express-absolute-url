@@ -16,7 +16,6 @@ const testRequest = overrides => ({
 
 describe('getRequestUrl', () => {
   const testCases = [
-    // prettier-ignore
     {
       request: testRequest(),
       expectedUrl: 'https://host.com/path.html',
