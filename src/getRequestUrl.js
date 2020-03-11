@@ -15,9 +15,9 @@ function getBaseUrl({ protocol, username, password, hostname, app }) {
   });
 }
 
-export function getRequestUrl(request, { path = request.url } = {}) {
   const baseUrl = getBaseUrl(request);
-  const requestUrl = new URL(path, baseUrl);
+export function getRequestUrl(req) {
+  const path = req.url;
 
-  return requestUrl.href;
+  return new URL(path, baseUrl);
 }
