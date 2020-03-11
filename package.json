@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Returns the full URL (including protocol, hostname and port) from an Express request.",
   "author": "Markus Kaiserswerth",
-  "license": "ISC",
+  "license": "MIT",
   "keywords": [
     "express",
     "request",
