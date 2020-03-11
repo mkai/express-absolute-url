@@ -8,50 +8,45 @@ function makeExpressApp(port) {
   };
 }
 
+function makeRequest(overrides) {
+  return {
+    protocol: 'https',
+    hostname: 'www.test.com',
+    url: '/path.html',
+    app: makeExpressApp(443),
+    ...overrides,
+  };
+}
+
 describe('getRequestUrl', () => {
   const testCases = [
+    [makeRequest(), 'https://www.test.com/path.html'],
     [
-      {
-        protocol: 'https',
-        hostname: 'www.tui.de:443',
-        url: '/abcdef.html',
-      },
-      'https://www.tui.de/abcdef.html',
+      makeRequest({ app: makeExpressApp(8443) }),
+      'https://www.test.com:8443/path.html',
     ],
     [
-      {
-        protocol: 'https',
-        hostname: 'www.tui.de',
-        url: '/abcdef.html',
-        app: makeExpressApp(443),
-      },
-      'https://www.tui.de/abcdef.html',
+      makeRequest({ hostname: 'www.test.com:678', app: makeExpressApp(345) }),
+      'https://www.test.com:345/path.html',
     ],
     [
-      {
-        protocol: 'https',
-        hostname: 'www.tui.de:1234',
-        url: '/abcdef.html',
-      },
-      'https://www.tui.de:1234/abcdef.html',
+      makeRequest({ username: 'john', password: 'secret' }),
+      'https://john:secret@www.test.com/path.html',
     ],
     [
-      {
-        protocol: 'https',
-        username: 'john',
-        password: 'secret',
-        hostname: 'www.tui.de',
-        url: '/abcdef.html',
-        app: makeExpressApp(1234),
-      },
-      'https://john:secret@www.tui.de:1234/abcdef.html',
+      makeRequest({
+        url: '?order_id=123&shoe[color]=white&shoe[size]=40',
+      }),
+      'https://www.test.com/?order_id=123&shoe[color]=white&shoe[size]=40',
     ],
   ];
 
   test.each(testCases)(
     'formats the given request as expected',
     (request, expectedResult) => {
-      expect(getRequestUrl(request)).toEqual(expectedResult);
+      const requestUrl = getRequestUrl(request);
+
+      expect(requestUrl.href).toBe(expectedResult);
     }
   );
 });
