@@ -1,52 +1,50 @@
 import { getRequestUrl } from './getRequestUrl';
 
-function makeExpressApp(port) {
-  return {
-    settings: {
-      port,
-    },
-  };
-}
+const testApp = port => ({
+  settings: {
+    port,
+  },
+});
 
-function makeRequest(overrides) {
-  return {
-    protocol: 'https',
-    hostname: 'www.test.com',
-    url: '/path.html',
-    app: makeExpressApp(443),
-    ...overrides,
-  };
-}
+const testRequest = overrides => ({
+  protocol: 'https',
+  hostname: 'host.com',
+  url: '/path.html',
+  app: testApp(443),
+  ...overrides,
+});
 
 describe('getRequestUrl', () => {
   const testCases = [
-    [makeRequest(), 'https://www.test.com/path.html'],
-    [
-      makeRequest({ app: makeExpressApp(8443) }),
-      'https://www.test.com:8443/path.html',
-    ],
-    [
-      makeRequest({ hostname: 'www.test.com:678', app: makeExpressApp(345) }),
-      'https://www.test.com:345/path.html',
-    ],
-    [
-      makeRequest({ username: 'john', password: 'secret' }),
-      'https://john:secret@www.test.com/path.html',
-    ],
-    [
-      makeRequest({
-        url: '?order_id=123&shoe[color]=white&shoe[size]=40',
-      }),
-      'https://www.test.com/?order_id=123&shoe[color]=white&shoe[size]=40',
-    ],
+    // prettier-ignore
+    {
+      request: testRequest(),
+      expectedUrl: 'https://host.com/path.html',
+    },
+    {
+      request: testRequest({ app: testApp(8443) }),
+      expectedUrl: 'https://host.com:8443/path.html',
+    },
+    {
+      request: testRequest({ hostname: 'host.com:678', app: testApp(345) }),
+      expectedUrl: 'https://host.com:345/path.html',
+    },
+    {
+      request: testRequest({ username: 'user', password: 'pass' }),
+      expectedUrl: 'https://user:pass@host.com/path.html',
+    },
+    {
+      request: testRequest({ url: '/path.html?offset=10&limit=10' }),
+      expectedUrl: 'https://host.com/path.html?offset=10&limit=10',
+    },
   ];
 
   test.each(testCases)(
-    'formats the given request as expected',
-    (request, expectedResult) => {
+    'returns the expected URL for a given request',
+    ({ request, expectedUrl }) => {
       const requestUrl = getRequestUrl(request);
 
-      expect(requestUrl.href).toBe(expectedResult);
+      expect(requestUrl.href).toBe(expectedUrl);
     }
   );
 });
