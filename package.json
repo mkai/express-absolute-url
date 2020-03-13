@@ -1,5 +1,5 @@
 {
-  "name": "express-full-request-url",
+  "name": "express-absolute-url",
   "version": "1.0.0",
   "description": "Returns the full URL (including protocol, hostname and port) from an Express request.",
   "author": "Markus Kaiserswerth",
@@ -9,11 +9,11 @@
     "request",
     "full url"
   ],
-  "repository": "git@github.com:mkai/express-full-request-url.git",
+  "repository": "git@github.com:mkai/express-absolute-url.git",
   "bugs": {
-    "url": "https://github.com/mkai/express-full-request-url/issues"
+    "url": "https://github.com/mkai/express-absolute-url/issues"
   },
-  "homepage": "https://github.com/mkai/express-full-request-url#readme",
+  "homepage": "https://github.com/mkai/express-absolute-url#readme",
   "main": "lib/index.js",
   "files": "lib/**/*.js",
   "scripts": {

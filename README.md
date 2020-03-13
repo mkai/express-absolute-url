@@ -1,3 +1,3 @@
-# express-full-request-url
+# express-absolute-url
 
-Returns the full URL (including protocol, hostname and port) from an Express request.
+Returns the absolute URL (including protocol, hostname and port) of an Express request.
