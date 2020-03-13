@@ -16,6 +16,9 @@
     "url": "https://github.com/mkai/express-absolute-url/issues"
   },
   "homepage": "https://github.com/mkai/express-absolute-url#readme",
+  "engines": {
+    "node": "8.x || 10.x || 12.x"
+  },
   "main": "lib/index.js",
   "files": "lib/**/*.js",
   "scripts": {
@@ -39,8 +42,5 @@
     "eslint-plugin-promise": "^4.2.1",
     "jest": "^25.1.0",
     "prettier": "^1.19.1"
-  },
-  "engines": {
-    "node": "8.x || 10.x || 12.x"
   }
 }
