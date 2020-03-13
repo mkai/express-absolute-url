@@ -1,1 +1,1 @@
-export { getRequestUrl } from './getRequestUrl';
+export { getAbsoluteUrl } from './getAbsoluteUrl';

@@ -16,7 +16,7 @@ function formatBaseUrl({ protocol, username, password, hostname, app }) {
   });
 }
 
-export function getRequestUrl(req) {
+export function getAbsoluteUrl(req) {
   const relativeUrl = req.url;
   const baseUrl = formatBaseUrl(req);
 
