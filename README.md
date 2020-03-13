@@ -40,7 +40,7 @@ $ npm test
 
 ## License
 
-[MIT](LICENSE)
+MIT
 
 [npm-image]: https://img.shields.io/npm/v/express-absolute-url.svg
 [npm-url]: https://npmjs.org/package/express-absolute-url
