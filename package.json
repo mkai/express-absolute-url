@@ -1,12 +1,14 @@
 {
   "name": "express-absolute-url",
   "version": "1.0.0",
-  "description": "Returns the full URL (including protocol, hostname and port) from an Express request.",
+  "description": "Returns the absolute URL of an Express request, including protocol, hostname and port.",
   "author": "Markus Kaiserswerth",
   "license": "MIT",
   "keywords": [
     "express",
     "request",
+    "absolute",
+    "url",
     "full url"
   ],
   "repository": "git@github.com:mkai/express-absolute-url.git",
