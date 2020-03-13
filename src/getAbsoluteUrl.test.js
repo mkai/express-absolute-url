@@ -35,10 +35,23 @@ describe('getAbsoluteUrl', () => {
     );
   });
 
-  it('ignores the port given in the host header', () => {
-    const request = testRequest({ hostname: 'host.com:678' });
+  it('gives precedence to a manually specified port', () => {
+    const request = testRequest({ app: testApp(8443) });
 
-    expect(getAbsoluteUrl(request).href).toBe('https://host.com/path.html');
+    expect(getAbsoluteUrl(request, { port: 8080 }).href).toBe(
+      'https://host.com:8080/path.html'
+    );
+  });
+
+  it('ignores the port given in the host header', () => {
+    const request = testRequest({
+      hostname: 'host.com:678',
+      app: testApp(8443),
+    });
+
+    expect(getAbsoluteUrl(request).href).toBe(
+      'https://host.com:8443/path.html'
+    );
   });
 
   const authTestCases = [

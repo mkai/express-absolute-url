@@ -1,6 +1,6 @@
 # express-absolute-url
 
-Returns the absolute URL of an [Express](https://expressjs.com) request,
+Get the absolute URL of an [Express](https://expressjs.com) request,
 including protocol, hostname and port.
 
 [![NPM Version][npm-image]][npm-url]
@@ -10,6 +10,16 @@ including protocol, hostname and port.
 import { getAbsoluteUrl } from 'express-absolute-url';
 
 > getAbsoluteUrl(req)
+http://localhost:3000/hello/
+```
+
+You might want to set the port manually, e. g. when your app is deployed behind
+a reverse proxy:
+
+```js
+import { getAbsoluteUrl } from 'express-absolute-url';
+
+> getAbsoluteUrl(req, { port: 443 })
 https://www.example.com/hello/
 ```
 
