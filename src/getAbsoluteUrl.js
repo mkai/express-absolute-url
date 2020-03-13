@@ -1,6 +1,10 @@
 import { format as urlFormat } from 'url';
 
 function getAuthString(username, password) {
+  if (!username) {
+    return '';
+  }
+
   return [username, password].filter(Boolean).join(':');
 }
 

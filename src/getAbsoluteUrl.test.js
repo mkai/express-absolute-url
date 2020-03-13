@@ -51,6 +51,10 @@ describe('getAbsoluteUrl', () => {
       password: 'pass',
       expectedUrl: 'https://user:pass@host.com/path.html',
     },
+    {
+      password: 'pass',
+      expectedUrl: 'https://host.com/path.html',
+    },
   ];
 
   test.each(authTestCases)(
