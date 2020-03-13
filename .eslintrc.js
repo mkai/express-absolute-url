@@ -9,8 +9,8 @@ module.exports = {
     'plugin:jest-formatting/recommended',
   ],
   plugins: ['prettier'],
+  parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2018,
     sourceType: 'module',
   },
   rules: {
