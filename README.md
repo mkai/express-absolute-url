@@ -1,7 +1,6 @@
 # express-absolute-url
 
-Get the absolute URL of an [Express](https://expressjs.com) request,
-including protocol, hostname and port.
+Get the absolute URL of your site from an [Express](https://expressjs.com) request, including protocol, hostname and port.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build][github-actions-image]][github-actions-url]

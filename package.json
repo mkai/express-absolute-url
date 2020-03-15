@@ -1,7 +1,7 @@
 {
   "name": "express-absolute-url",
   "version": "1.0.0",
-  "description": "Returns the absolute URL of an Express request, including protocol, hostname and port.",
+  "description": "Get the absolute URL of your site from an Express request.",
   "author": "Markus Kaiserswerth",
   "license": "MIT",
   "keywords": [
