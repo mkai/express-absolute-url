@@ -14,7 +14,7 @@ https://www.example.com/hello/?q=world
 ```
 
 By default, this package will try to determine the port automatically from
-the incoming Host header (or X-Forwarded-Host header, if you
+the incoming _Host_ header (or _X-Forwarded-Host_ header, if you
 [trust](http://expressjs.com/en/guide/behind-proxies.html) that).
 
 ```js
