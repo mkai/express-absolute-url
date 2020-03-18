@@ -1,6 +1,7 @@
 # express-absolute-url
 
-Get the absolute URL of your site from an [Express](https://expressjs.com) request, including protocol, hostname and port.
+Get the absolute URL of your site from an [Express](https://expressjs.com)
+request, including protocol, hostname and port.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build][github-actions-image]][github-actions-url]
@@ -8,19 +9,23 @@ Get the absolute URL of your site from an [Express](https://expressjs.com) reque
 ```js
 import { getAbsoluteUrl } from 'express-absolute-url';
 
-> getAbsoluteUrl(req)
-http://localhost:3000/hello/
+> getAbsoluteUrl(req).toString()
+https://www.example.com/hello/?q=world
 ```
 
-You might want to set the port manually, e. g. when your app is deployed behind
-a reverse proxy:
+By default, this package will try to determine the port automatically from
+the incoming Host header (or X-Forwarded-Host header, if you
+[trust](http://expressjs.com/en/guide/behind-proxies.html) that).
 
 ```js
 import { getAbsoluteUrl } from 'express-absolute-url';
 
-> getAbsoluteUrl(req, { port: 443 })
-https://www.example.com/hello/
+> getAbsoluteUrl(req).toString()
+http://localhost:3000/hello/?q=world
 ```
+
+If the port could not be determined automatically, then the standard port for
+the respective protocol will be used.
 
 ## Installation
 
