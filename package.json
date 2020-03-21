@@ -1,6 +1,6 @@
 {
   "name": "express-absolute-url",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get the absolute URL of your site from an Express request.",
   "author": "Markus Kaiserswerth",
   "license": "MIT",
