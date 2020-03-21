@@ -23,7 +23,7 @@ function getForwardedHost(req) {
   }
 }
 
-function getHostHeader(req) {
+function getHost(req) {
   // Since Express 4 incorrectly strips the port we have to imitate the native
   // behaviour (which considers X-Forwarded-Host) but leave the port in place.
   // https://github.com/expressjs/express/blob/b93ffd/lib/request.js#L427
@@ -31,8 +31,8 @@ function getHostHeader(req) {
 }
 
 function formatBaseUrl(req, port) {
-  const hostHeader = getHostHeader(req);
-  const [parsedHost, parsedPort] = hostHeader.split(':');
+  const host = getHost(req);
+  const [parsedHost, parsedPort] = host.split(':');
 
   return urlFormat({
     protocol: req.protocol,
