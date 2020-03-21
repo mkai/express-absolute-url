@@ -17,15 +17,16 @@ By default, this package will try to determine the port automatically from
 the incoming _Host_ header (or _X-Forwarded-Host_ header, if you
 [trust](http://expressjs.com/en/guide/behind-proxies.html) that).
 
+If the port could not be determined automatically, then the standard port for
+the respective protocol will be used. However, you can still specify the port
+manually using the `port` option as follows:
+
 ```js
 import { getAbsoluteUrl } from 'express-absolute-url';
 
-> getAbsoluteUrl(req).toString()
-http://localhost:3000/hello/?q=world
+> getAbsoluteUrl(req, { port: 8443 }).toString()
+http://localhost:8443/hello/?q=world
 ```
-
-If the port could not be determined automatically, then the standard port for
-the respective protocol will be used.
 
 ## Installation
 
