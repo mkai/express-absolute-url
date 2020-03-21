@@ -12,7 +12,6 @@ const testHeaderFunc = headers => headerName => headers[headerName];
 
 const testRequest = overrides => ({
   protocol: 'https',
-  host: 'host.com',
   hostname: 'host.com',
   url: '/path.html',
   header: testHeaderFunc({ Host: 'host.com' }),
@@ -71,13 +70,6 @@ describe('getAbsoluteUrl', () => {
     expect(url.toString()).toBe(
       'https://host.com/path.html?offset=10&limit=10'
     );
-  });
-
-  it('uses the port from the host property, if available', () => {
-    const request = testRequest({ host: 'host.com:123' });
-    const url = getAbsoluteUrl(request);
-
-    expect(url.toString()).toBe('https://host.com:123/path.html');
   });
 
   it('uses the port from the host header if available', () => {

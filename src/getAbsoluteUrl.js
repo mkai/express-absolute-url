@@ -15,9 +15,6 @@ function firstItem(string, delimiter = ',') {
 }
 
 function getForwardedHost(req) {
-  // Since Express 4 incorrectly strips the port we have to copy the original
-  // behaviour (which considers X-Forwarded-Host) but leave the port in place.
-  // https://github.com/expressjs/express/blob/b93ffd/lib/request.js#L427
   const forwardedHost = req.header('X-Forwarded-Host');
   const trustProxy = req.app.get('trust proxy fn');
 
@@ -27,10 +24,9 @@ function getForwardedHost(req) {
 }
 
 function getHostHeader(req) {
-  if (req.host.includes(':')) {
-    return req.host; // Express 5 (preserves the port)
-  }
-
+  // Since Express 4 incorrectly strips the port we have to imitate the native
+  // behaviour (which considers X-Forwarded-Host) but leave the port in place.
+  // https://github.com/expressjs/express/blob/b93ffd/lib/request.js#L427
   return getForwardedHost(req) || req.header('Host');
 }
 
