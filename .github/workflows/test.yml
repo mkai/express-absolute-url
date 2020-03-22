@@ -22,5 +22,5 @@ jobs:
       - name: Upload coverage report
         uses: codecov/codecov-action@v1
         with:
-          flags: unit-tests
+          flags: unittests
           fail_ci_if_error: true
