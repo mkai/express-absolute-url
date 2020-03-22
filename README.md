@@ -5,6 +5,7 @@ request, including protocol, hostname and port.
 
 [![NPM Version][npm-image]][npm-url]
 [![Build][github-actions-image]][github-actions-url]
+[![Coverage][codecov-image]][codecov-url]
 
 ```js
 import { getAbsoluteUrl } from 'express-absolute-url';
@@ -51,3 +52,5 @@ MIT
 [npm-url]: https://npmjs.org/package/express-absolute-url
 [github-actions-image]: https://github.com/mkai/express-absolute-url/workflows/Test/badge.svg?branch=master&event=push
 [github-actions-url]: https://github.com/mkai/express-absolute-url/actions?query=branch%3Amaster+event%3Apush
+[codecov-image]: https://codecov.io/gh/mkai/express-absolute-url/branch/master/graph/badge.svg
+[codecov-url]: https://codecov.io/gh/mkai/express-absolute-url
