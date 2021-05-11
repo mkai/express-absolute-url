@@ -8,9 +8,9 @@ const testApp = ({ trustProxy = false } = {}) => ({
   },
 });
 
-const testHeaderFunc = headers => headerName => headers[headerName];
+const testHeaderFunc = (headers) => (headerName) => headers[headerName];
 
-const testRequest = overrides => ({
+const testRequest = (overrides) => ({
   protocol: 'https',
   hostname: 'host.com',
   url: '/path.html',
@@ -102,7 +102,7 @@ describe('getAbsoluteUrl', () => {
 
   test.each(forwardedHostTestCases)(
     'uses the port from the X-Forwarded-Host header if trusted',
-    forwardedHostHeader => {
+    (forwardedHostHeader) => {
       const request = testRequest({
         host: 'forwarded.com',
         hostname: 'forwarded.com',
