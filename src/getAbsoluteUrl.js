@@ -32,7 +32,7 @@ function getHost(req) {
 
 function formatBaseUrl(req, port) {
   const host = getHost(req);
-  const [parsedHost, parsedPort] = host.split(':');
+  const [, parsedPort] = host.split(':');
 
   return urlFormat({
     protocol: req.protocol,
